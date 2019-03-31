@@ -1,0 +1,18 @@
+#!/bin/bash
+
+read -p 'Geef een gebruikersnaam: ' userName 
+if [[ -z $userName ]]; then
+	userName=$(whoami)
+fi
+
+echo "Geef een wachtwoord met minstens een lengte 8 karakters, 1 hoofdletter, 1 bijzonder karakter en 1 cijfer."
+while read -p "Wachtwoord: " pswd; do
+if [[ "$pswd" =~ [A-Z] ]] && [[ "$pswd" =~ [a-z] ]] && [[ "$pswd" =~ [0-9] ]] && [[ "${#pswd}" -gt 7 ]]
+then
+	echo "$userName" >> $1
+	echo "$pswd" | md5sum >> $1
+	break 
+else
+	echo "Dit wachtwoord is niet veilig genoeg, probeer een andere."
+fi
+done

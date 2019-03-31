@@ -1,0 +1,6 @@
+#! /bin/bash
+
+sudo mkdir $1/afbeelding
+
+find $1 -iname '*.jpg'  -exec sudo mv '{}' $1/afbeelding \;
+find $1 -iname '*.png'  -exec sudo mv '{}' $1/afbeelding \;

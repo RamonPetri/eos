@@ -1,0 +1,20 @@
+#!/bin/bash
+
+logFile=$1/ext.log
+
+if [ -f "$logFile" ]; then
+    rm $1/ext.log
+else
+    touch $1/ext.log
+fi
+
+Path_file=$1/*
+
+for file in  $Path_file; do
+
+	if [ ${file: -4} == ".txt" ]; then
+	  echo "$2 $file Heeft EEN .txt file exstensie" >> $1/ext.log
+	else
+	  echo "$2 $file Heeft GEEN .txt file exstensie" >> $1/ext.log
+	fi
+done

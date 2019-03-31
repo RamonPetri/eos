@@ -1,0 +1,27 @@
+#!/bin/bash
+aantalPdf=0
+aantalJpg=0
+aantalDoc=0
+
+cd $1
+for ext in *.$2 *.$3 *.$4
+do
+    case $ext in
+        *.pdf)
+            let "aantalPdf++" 
+        ;;
+        *.doc)
+            let "aantalDoc++"
+        ;;
+        *.jpg)
+            let "aantalJpg++"
+        ;;
+    esac
+    
+done
+
+echo "aantal pdfs: $aantalPdf"
+echo "aantal jpgs: $aantalJpg"
+echo "aantal docs: $aantalDoc"
+
+

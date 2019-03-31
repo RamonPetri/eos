@@ -1,0 +1,7 @@
+#! /bin/bash
+
+sudo mkdir $1/afbeelding
+for file in *.jpg *.png
+do
+    sudo mv $1/$file $1/afbeelding
+done
